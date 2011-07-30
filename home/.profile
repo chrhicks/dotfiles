@@ -19,6 +19,9 @@ if [ -f /opt/local/etc/bash_completion ]; then
   complete -o default -o nospace -F _capcomplete cap
 fi
 
+export PATH=$PATH:/Applications/Utilities
+export PATH=$PATH:~/bin
+
 alias ls='ls -aG'
 alias ll='ls -laG'
 alias gg='/web/tools/bin/gg'
