@@ -3,22 +3,6 @@ if [ -f ~/.chicksrc ]; then
         . ~/.chicksrc
 fi
 
-if [ -f /opt/local/etc/bash_completion ]; then
-  . /opt/local/etc/bash_completion
-  source /opt/local/share/doc/git-core/contrib/completion/git-completion.bash
-  export COMP_WORDBREAKS=${COMP_WORDBREAKS/\:/}
-  _rakecomplete() {
-    COMPREPLY=($(compgen -W "`rake -s -T | awk '{{print $2}}'`" -- ${COMP_WORDS[COMP_CWORD]}))
-    return 0
-  }
-  _capcomplete() {
-    COMPREPLY=($(compgen -W "`cap  -T  2>/dev/null| awk '{{ if ( $3 ~ /\#/ ) print $2}}'`" -- ${COMP_WORDS[COMP_CWORD]}))
-    return 0
-  }
-  complete -o default -o nospace -F _rakecomplete rake
-  complete -o default -o nospace -F _capcomplete cap
-fi
-
 export PATH=$PATH:/Applications/Utilities
 export PATH=$PATH:~/bin
 
@@ -42,4 +26,18 @@ alias gpu='git pull'
 alias gcl='git clone'
 alias logme='git log --author=chicks'
 alias pretty='git log --graph --oneline --decorate'
+
+cloneit () {
+  git clone --recursive ssh://gerrit.gilt.com:29418/$1.git
+}
+
+drill () {
+  STAGE_HOST='qa.ec2.gilt.com'
+  if [ $1 -ge "50" ]
+    then
+      STAGE_HOST='giltqa.com'
+  fi
+
+  /web/tools/bin/tunnel.rb -v --config=losa --host=stage$1.$STAGE_HOST --include=svc-inventory --include=rabbitmq
+}
 
