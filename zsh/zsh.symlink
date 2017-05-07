@@ -2,7 +2,7 @@
 #
 export DOTS=$HOME/.dotfiles
 export ZSH=$DOTS/zsh
-local THEME="robbyrussell"
+local THEME="ace-of-spades.prompt"
 
 # add a function path
 for topic_folder ($DOTS/*) if [ -d $topic_folder ]; then  fpath=($topic_folder $fpath); fi;
