@@ -1,0 +1,1 @@
+export PATH="$(brew --prefix git)/bin:$PATH"
