@@ -1,4 +1,8 @@
-export HISTSIZE=99999999999
+if [ -z $HISTFILE ]; then
+    HISTFILE=$HOME/.zsh_history
+fi
+HISTSIZE=99999999999
+SAVEHIST=10000
 
 setopt append_history
 setopt extended_history
