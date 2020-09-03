@@ -1,8 +1,6 @@
 # path to dotfiles
 #
 export DOTS=$HOME/.dotfiles
-export ZSH=$DOTS/zsh
-local THEME="ace-of-spades.prompt"
 
 # add a function path
 for topic_folder ($DOTS/*) if [ -d $topic_folder ]; then  fpath=($topic_folder $fpath); fi;
@@ -12,21 +10,10 @@ for config_file ($DOTS/**/*.zsh); do
   source $config_file
 done
 
-# load theme
-test -f "$ZSH/$THEME" && source "$ZSH/$THEME"
-
-# Load and run compinit
-autoload -U compinit
-compinit;
-
 # Load System Specific Configs
 #
-[ -e ~/.profile ] && . ~/.profile;
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH="$HOME/.yarn/bin:$PATH"
-
 export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
