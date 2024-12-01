@@ -1,0 +1,15 @@
+# path to dotfiles
+#
+export DOTS=$HOME/.dotfiles
+
+# add a function path
+for topic_folder in ($DOTS/*)
+  if [ -d $topic_folder ]
+    then  fpath=($topic_folder $fpath)
+  end
+end
+
+# Load all of the config files in ~/.dotfiles/fish_ubuntu that end in .fish
+for config_file in $DOTS/**/*.fish
+  source $config_file
+end
