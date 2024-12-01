@@ -62,7 +62,7 @@ if [ ! -d $DOTS ]; then
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
     cd $HOME;
-    git clone git@github.com:nathanstilwell/dotfiles.git .dotfiles;
+    git clone git@github.com:chrhicks/dotfiles.git .dotfiles;
   fi
 else
   echo -e "${green:?} dotfiles found ${stop:?}";
