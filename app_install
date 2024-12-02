@@ -1,0 +1,11 @@
+#!/opt/homebrew/bin/fish
+
+set -l DOTS $HOME/.dotfiles;
+
+if not command -v brew > /dev/null;
+    # add path to brew, if not found
+    fish_add_path (brew --prefix)/bin/brew;
+end
+
+. $DOTS/fish/setup/shell_setup
+. $DOTS/fish/setup/set_defaults
