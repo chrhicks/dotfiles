@@ -1,1 +1,1 @@
-alias reload='source ~/.zshrc'
+alias reload='source ~/.profile.fish'
