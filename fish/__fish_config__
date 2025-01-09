@@ -1,0 +1,14 @@
+set -l DOTS $HOME/.dotfiles
+
+if status is-interactive
+    source $DOTS/fish/path.fish
+    # Load all of the config files in ~/.dotfiles/fish_ubuntu that end in .fish
+    for config_file in $DOTS/**/*.fish
+        source $config_file
+    end
+end
+
+# Load System Specific Configs
+test -e ~/.profile.fish && source ~/.profile.fish;
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
