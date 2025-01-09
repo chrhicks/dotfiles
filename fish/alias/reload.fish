@@ -1,1 +1,1 @@
-alias reload='source ~/.profile.fish'
+alias reload='source ~/.dotfiles/fish/__fish_config__'

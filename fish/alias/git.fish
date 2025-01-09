@@ -14,7 +14,9 @@ alias gcl='git clone'
 alias logme='git log --author=chrhicks'
 alias pretty='git log --graph --oneline --decorate'
 
-# Prune Branches
-# alias gitgc='git checkout main && git fetch -p && for branch in `git branch -vv | grep '"'"': gone]'"'"' | awk '"'"'{print $1}'"'"'`; do git branch -D $branch; done'
-
-# eval "$(hub alias -s)"
+function gitgc --description 'Clean up gone branches'
+    git checkout main; and git fetch -p
+    for branch in (git branch -vv | grep ": gone]" | awk "{print $1}")
+        git branch -D $branch
+    end
+end
