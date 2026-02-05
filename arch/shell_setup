@@ -8,7 +8,7 @@ set -l fishdir $CONFIG/fish
 set -l fishpath /usr/bin/fish
 set -l current_shell $SHELL
 set -l fish_prefix "🐟"
-set -l stow_target $ARCH/config/fish/config.fish
+set -l stow_target $ARCH/config/.config/fish/config.fish
 
 source $ARCH/util_headings
 

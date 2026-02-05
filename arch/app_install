@@ -10,7 +10,7 @@ set -l packages \
   figlet \
   fish \
   fzf \
-  gh \
+  github-cli \
   git \
   glow \
   jq \
