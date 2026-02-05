@@ -1,0 +1,33 @@
+#!/usr/bin/fish
+
+set -l packages \
+  base-devel \
+  bat \
+  broot \
+  curl \
+  deno \
+  fd \
+  figlet \
+  fish \
+  fzf \
+  gh \
+  git \
+  glow \
+  jq \
+  make \
+  neovim \
+  optipng \
+  php \
+  python \
+  rbenv \
+  ripgrep \
+  shellcheck \
+  starship \
+  stow \
+  tree \
+  unzip \
+  libwebp \
+  wget
+
+echo "Installing Arch packages"
+sudo pacman -S --needed --noconfirm $packages

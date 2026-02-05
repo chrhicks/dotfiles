@@ -1,0 +1,22 @@
+#!/usr/bin/fish
+
+set -l DOTS $HOME/.dotfiles
+set -l ARCH $DOTS/arch
+
+source $ARCH/util_headings
+
+heading "Arch Setup" green black
+
+if not test -d $ARCH
+  echo (set_color red)Arch dotfiles not found at $ARCH(set_color normal)
+  exit 1
+end
+
+if not type -q stow
+  echo (set_color red)stow is not installed.(set_color normal)
+  echo Install it with: sudo pacman -S stow
+  exit 1
+end
+
+cd $ARCH
+stow -t $HOME home config

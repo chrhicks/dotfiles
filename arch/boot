@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+DOTS="${DOTS:-$HOME/.dotfiles}"
+ARCH="$DOTS/arch"
+
+if ! command -v pacman >/dev/null 2>&1; then
+  echo "pacman not found. This script is for Arch Linux."
+  exit 1
+fi
+
+if ! command -v fish >/dev/null 2>&1; then
+  sudo pacman -S --needed --noconfirm fish
+fi
+
+sudo pacman -S --needed --noconfirm git curl
+
+if [ -x /usr/bin/fish ]; then
+  /usr/bin/fish "$ARCH/setup"
+  /usr/bin/fish "$ARCH/shell_setup"
+else
+  echo "fish not found after install."
+  exit 1
+fi
